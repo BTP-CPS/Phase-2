@@ -1,0 +1,49 @@
+[INPUT]
+inflow1
+inflow2
+
+
+[OUTPUT]
+level@0.3.107
+level@1
+level@2
+level@3
+level@4
+level@5
+level@6
+outflow
+
+
+[ENV_TRANS]
+| ! inflow1 ! inflow1'
+| ! inflow2 ! inflow2'
+
+
+[ENV_INIT]
+! inflow1
+! inflow2
+
+
+[SYS_TRANS]
+| ! & & inflow1 inflow2 outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 15 | | & 1 level@1 & ? 15 1 & ? 15 level@1 ^ level@2 ? 17 & level@2 ? 17 ^ level@3 ? 19 & level@3 ? 19 ^ level@4 ? 21 & level@4 ? 21 ^ level@5 ? 23 & level@5 ? 23 ^ level@6 ? 25 & level@6 ? 25 ^ 1 ? 14 & 1 ? 14 ^ ? 16 ? 29 & ? 16 ? 29 ^ ? 18 ? 31 & ? 18 ? 31 ^ ? 20 ? 33 & ? 20 ? 33 ^ ? 22 ? 35 & ? 22 ? 35 ^ ? 24 ? 37 & ? 24 ? 37 ^ ? 26 ? 39 & ? 26 ? 39 ^ ? 27 ? 41 & ? 27 ? 41 & ! ? 43 & ! ^ ? 13 ? 42 & ! ^ ? 12 ? 40 & ! ^ ? 10 ? 38 & ! ^ ? 8 ? 36 & ! ^ ? 6 ? 34 & ! ^ ? 4 ? 32 & ! ^ ? 2 ? 30 & ! ^ ? 0 ? 28 1
+| ! & & inflow1 inflow2 ! outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 15 | | & 1 level@1 & ? 15 1 & ? 15 level@1 ^ level@2 ? 17 & level@2 ? 17 ^ level@3 ? 19 & level@3 ? 19 ^ level@4 ? 21 & level@4 ? 21 ^ level@5 ? 23 & level@5 ? 23 ^ level@6 ? 25 & level@6 ? 25 ^ 0 ? 14 & 0 ? 14 ^ ^ 0 ? 16 ? 29 | | & 0 ? 16 & ? 29 0 & ? 29 ? 16 ^ ^ 1 ? 18 ? 31 | | & 1 ? 18 & ? 31 1 & ? 31 ? 18 ^ ? 20 ? 33 & ? 20 ? 33 ^ ? 22 ? 35 & ? 22 ? 35 ^ ? 24 ? 37 & ? 24 ? 37 ^ ? 26 ? 39 & ? 26 ? 39 ^ ? 27 ? 41 & ? 27 ? 41 & ! ? 43 & ! ^ ? 13 ? 42 & ! ^ ? 12 ? 40 & ! ^ ? 10 ? 38 & ! ^ ? 8 ? 36 & ! ^ ? 6 ? 34 & ! ^ ? 4 ? 32 & ! ^ ? 2 ? 30 & ! ^ ? 0 ? 28 1
+| ! & & inflow1 ! inflow2 outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 ? 0 & 1 ? 0 ^ ? 2 ? 15 & ? 2 ? 15 ^ ? 4 ? 17 & ? 4 ? 17 ^ ? 6 ? 19 & ? 6 ? 19 ^ ? 8 ? 21 & ? 8 ? 21 ^ ? 10 ? 23 & ? 10 ? 23 ^ ? 12 ? 25 & ? 12 ? 25 ^ ? 13 ? 27 & ? 13 ? 27 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 31 | | & 1 level@1 & ? 31 1 & ? 31 level@1 ^ level@2 ? 33 & level@2 ? 33 ^ level@3 ? 35 & level@3 ? 35 ^ level@4 ? 37 & level@4 ? 37 ^ level@5 ? 39 & level@5 ? 39 ^ level@6 ? 41 & level@6 ? 41 & ! ? 29 & ! ^ ? 28 ? 43 & ! ^ ? 26 ? 42 & ! ^ ? 24 ? 40 & ! ^ ? 22 ? 38 & ! ^ ? 20 ? 36 & ! ^ ? 18 ? 34 & ! ^ ? 16 ? 32 & ! ^ ? 14 ? 30 1
+| ! & & inflow1 ! inflow2 ! outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 15 | | & 1 level@1 & ? 15 1 & ? 15 level@1 ^ level@2 ? 17 & level@2 ? 17 ^ level@3 ? 19 & level@3 ? 19 ^ level@4 ? 21 & level@4 ? 21 ^ level@5 ? 23 & level@5 ? 23 ^ level@6 ? 25 & level@6 ? 25 ^ 0 ? 14 & 0 ? 14 ^ ^ 1 ? 16 ? 29 | | & 1 ? 16 & ? 29 1 & ? 29 ? 16 ^ ? 18 ? 31 & ? 18 ? 31 ^ ? 20 ? 33 & ? 20 ? 33 ^ ? 22 ? 35 & ? 22 ? 35 ^ ? 24 ? 37 & ? 24 ? 37 ^ ? 26 ? 39 & ? 26 ? 39 ^ ? 27 ? 41 & ? 27 ? 41 & ! ? 43 & ! ^ ? 13 ? 42 & ! ^ ? 12 ? 40 & ! ^ ? 10 ? 38 & ! ^ ? 8 ? 36 & ! ^ ? 6 ? 34 & ! ^ ? 4 ? 32 & ! ^ ? 2 ? 30 & ! ^ ? 0 ? 28 1
+| ! & & ! inflow1 inflow2 outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 ? 0 & 1 ? 0 ^ ? 2 ? 15 & ? 2 ? 15 ^ ? 4 ? 17 & ? 4 ? 17 ^ ? 6 ? 19 & ? 6 ? 19 ^ ? 8 ? 21 & ? 8 ? 21 ^ ? 10 ? 23 & ? 10 ? 23 ^ ? 12 ? 25 & ? 12 ? 25 ^ ? 13 ? 27 & ? 13 ? 27 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 31 | | & 1 level@1 & ? 31 1 & ? 31 level@1 ^ level@2 ? 33 & level@2 ? 33 ^ level@3 ? 35 & level@3 ? 35 ^ level@4 ? 37 & level@4 ? 37 ^ level@5 ? 39 & level@5 ? 39 ^ level@6 ? 41 & level@6 ? 41 & ! ? 29 & ! ^ ? 28 ? 43 & ! ^ ? 26 ? 42 & ! ^ ? 24 ? 40 & ! ^ ? 22 ? 38 & ! ^ ? 20 ? 36 & ! ^ ? 18 ? 34 & ! ^ ? 16 ? 32 & ! ^ ? 14 ? 30 1
+| ! & & ! inflow1 inflow2 ! outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 15 | | & 1 level@1 & ? 15 1 & ? 15 level@1 ^ level@2 ? 17 & level@2 ? 17 ^ level@3 ? 19 & level@3 ? 19 ^ level@4 ? 21 & level@4 ? 21 ^ level@5 ? 23 & level@5 ? 23 ^ level@6 ? 25 & level@6 ? 25 ^ 0 ? 14 & 0 ? 14 ^ ^ 1 ? 16 ? 29 | | & 1 ? 16 & ? 29 1 & ? 29 ? 16 ^ ? 18 ? 31 & ? 18 ? 31 ^ ? 20 ? 33 & ? 20 ? 33 ^ ? 22 ? 35 & ? 22 ? 35 ^ ? 24 ? 37 & ? 24 ? 37 ^ ? 26 ? 39 & ? 26 ? 39 ^ ? 27 ? 41 & ? 27 ? 41 & ! ? 43 & ! ^ ? 13 ? 42 & ! ^ ? 12 ? 40 & ! ^ ? 10 ? 38 & ! ^ ? 8 ? 36 & ! ^ ? 6 ? 34 & ! ^ ? 4 ? 32 & ! ^ ? 2 ? 30 & ! ^ ? 0 ? 28 1
+| ! & & ! inflow1 ! inflow2 outflow $ 45 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 ? 0 & 1 ? 0 ^ ^ 1 ? 2 ? 15 | | & 1 ? 2 & ? 15 1 & ? 15 ? 2 ^ ? 4 ? 17 & ? 4 ? 17 ^ ? 6 ? 19 & ? 6 ? 19 ^ ? 8 ? 21 & ? 8 ? 21 ^ ? 10 ? 23 & ? 10 ? 23 ^ ? 12 ? 25 & ? 12 ? 25 ^ ? 13 ? 27 & ? 13 ? 27 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 31 | | & 1 level@1 & ? 31 1 & ? 31 level@1 ^ level@2 ? 33 & level@2 ? 33 ^ level@3 ? 35 & level@3 ? 35 ^ level@4 ? 37 & level@4 ? 37 ^ level@5 ? 39 & level@5 ? 39 ^ level@6 ? 41 & level@6 ? 41 & ! ? 29 & ! ^ ? 28 ? 43 & ! ^ ? 26 ? 42 & ! ^ ? 24 ? 40 & ! ^ ? 22 ? 38 & ! ^ ? 20 ? 36 & ! ^ ? 18 ? 34 & ! ^ ? 16 ? 32 & ! ^ ? 14 ? 30 1
+| ! & & ! inflow1 ! inflow2 ! outflow $ 29 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 15 | | & 1 level@1 & ? 15 1 & ? 15 level@1 ^ level@2 ? 17 & level@2 ? 17 ^ level@3 ? 19 & level@3 ? 19 ^ level@4 ? 21 & level@4 ? 21 ^ level@5 ? 23 & level@5 ? 23 ^ level@6 ? 25 & level@6 ? 25 & ! ^ ? 13 ? 27 & ! ^ ? 12 ? 26 & ! ^ ? 10 ? 24 & ! ^ ? 8 ? 22 & ! ^ ? 6 ? 20 & ! ^ ? 4 ? 18 & ! ^ ? 2 ? 16 & ! ^ ? 0 ? 14 1
+
+$ 15 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 & ! ? 13 | & ! ? 12 1 & | 1 ! ? 12 | & ! ? 10 1 & | 1 ! ? 10 | & ! ? 8 0 & | 0 ! ? 8 | & ! ? 6 0 & | 0 ! ? 6 | & ! ? 4 1 & | 1 ! ? 4 | & ! ? 2 0 & | 0 ! ? 2 | & ! ? 0 0 & | 0 ! ? 0 1
+$ 15 ^ 1 level@0.3.107' & 1 level@0.3.107' ^ ^ 1 level@1' ? 1 | | & 1 level@1' & ? 1 1 & ? 1 level@1' ^ level@2' ? 3 & level@2' ? 3 ^ level@3' ? 5 & level@3' ? 5 ^ level@4' ? 7 & level@4' ? 7 ^ level@5' ? 9 & level@5' ? 9 ^ level@6' ? 11 & level@6' ? 11 | ? 13 | ? 12 | ? 10 | ? 8 | & ? 6 ! 1 & | ! 1 ? 6 | & ? 4 ! 0 & | ! 0 ? 4 | & ? 2 ! 1 & | ! 1 ? 2 | & ? 0 ! 0 & | ! 0 ? 0 1
+
+## Variable limits: 3<=level'<=107
+| ! level@6' | ! level@5' & ! level@4' | ! level@3' & ! level@2' & ! level@1' | ! level@0.3.107' 0
+
+[SYS_INIT]
+! outflow
+$ 15 ^ 1 level@0.3.107 & 1 level@0.3.107 ^ ^ 1 level@1 ? 1 | | & 1 level@1 & ? 1 1 & ? 1 level@1 ^ level@2 ? 3 & level@2 ? 3 ^ level@3 ? 5 & level@3 ? 5 ^ level@4 ? 7 & level@4 ? 7 ^ level@5 ? 9 & level@5 ? 9 ^ level@6 ? 11 & level@6 ? 11 & ! ? 13 & ! ? 12 & ! ? 10 & ! ? 8 & ! ^ ? 6 1 & ! ^ ? 4 0 & ! ^ ? 2 1 & ! ^ ? 0 0 1
+
+## Variable limits: 3<=level<=107
+| ! level@6 | ! level@5 & ! level@4 | ! level@3 & ! level@2 & ! level@1 | ! level@0.3.107 0
+
